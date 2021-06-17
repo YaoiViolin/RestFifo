@@ -1,5 +1,5 @@
 # RestFifo
-Application that inplements FIFO queue actions
+Application that implements FIFO queue actions
 
 Серверная часть приложения написана с ипользованием **spring boot framework**
 
