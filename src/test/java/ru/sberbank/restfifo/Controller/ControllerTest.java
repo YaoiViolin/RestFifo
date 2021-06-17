@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.sberbank.restfifo.Domain.Message;
-import ru.sberbank.restfifo.Service.MessageService;
 
 import java.util.List;
 
@@ -58,6 +57,4 @@ class ControllerTest {
 
         assertEquals(messagePollExpected, messagePollActual);
     }
-
-
 }

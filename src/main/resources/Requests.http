@@ -1,0 +1,26 @@
+POST http://localhost:8080/new
+Content-Type: application/json
+
+{"msg": "this is offer"}
+
+###
+GET http://localhost:8080/?action=peek
+Accept: application/json
+
+### peek
+GET http://localhost:8080/?action=poll
+Accept: application/json
+
+### poll
+
+GET http://localhost:8080/?action=peekmax
+Accept: application/json
+
+### peekmax
+
+GET http://localhost:8080/getall
+Accept: application/json
+
+### список всех сообщений
+
+

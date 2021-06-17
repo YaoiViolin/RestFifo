@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.sberbank.restfifo.Domain.Message;
-import ru.sberbank.restfifo.Repos.MessageRepo;
 import ru.sberbank.restfifo.Service.MessageService;
 
 import java.util.List;
