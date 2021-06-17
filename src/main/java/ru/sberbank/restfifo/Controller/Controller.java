@@ -1,23 +1,45 @@
 package ru.sberbank.restfifo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ru.sberbank.restfifo.Domain.Message;
 import ru.sberbank.restfifo.Repos.MessageRepo;
+import ru.sberbank.restfifo.Service.MessageService;
 
 import java.util.List;
 
 @RestController
 public class Controller {
     @Autowired
-    MessageRepo messageRepo;
+    MessageService messageService;
 
     @GetMapping("/getall")
+    @ResponseBody
     public List<Message> getAllMessages() {
-        return messageRepo.findAll();
+        return messageService.getAllMessages();
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public Message getMessage(@RequestParam (name = "action", required = true) String action ) {
+        switch (action) {
+            case "peek":
+                return messageService.peek();
+            case "peekmax":
+                return messageService.peekMax();
+            case "poll":
+                return messageService.poll();
+            default:
+                return null;
+        }
+    }
 
+    @PostMapping("/new")
+    @ResponseBody
+    public ResponseEntity<Message> offerMessage(@RequestBody Message message) {
+        if (messageService.offer(message))
+            return ResponseEntity.ok(message);
+        else return null;
+    }
 }
