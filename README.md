@@ -5,6 +5,6 @@ Application that inplements FIFO queue actions
 
 
 БД - **PostgreSQL**
-
+***
 REST приложние реализует функциональность очереди (FIFO) элементов текстовых сообщений.
 Все варианты обрабатываемых приложением запросов можно найти в **src/main/resources/Requests.http**
